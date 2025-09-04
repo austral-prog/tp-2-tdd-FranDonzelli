@@ -1,12 +1,42 @@
 package com.tp2.roman;
 
 public class RomanNumerals {
-    
+    String uno = "I";
+    String cinco = "V";
+    String diez = "X";
+
+    public String magia(int cantidad, String uno, String cinco, String diez) {
+        String numero = "";
+
+        if (cantidad == 4) {
+            numero = uno + cinco;
+        } else if (cantidad == 9) {
+            numero = uno + diez;
+        } else {
+            if (cantidad >= 5) {
+                numero += cinco;
+                cantidad -= 5;
+            }
+            for (int i = 0; i < cantidad; i++) {
+                numero += uno;
+            }
+        }
+        return numero;
+    }
+
     public String convert(int number) {
-        // TODO: Implement roman numeral conversion following TDD approach
-        // Start with basic numbers: 1=I, 5=V, 10=X
-        // Then handle subtraction cases: 4=IV, 9=IX
-        // Build up to complex numbers like 1994=MCMXCIV
-        return "";
+        String nro_romano = "";
+
+        int unidades = number % 10;
+        int decenas = (number / 10) % 10;
+        int centenas = (number / 100) % 10;
+        int millares = (number / 1000) % 10;
+
+        nro_romano += magia(millares, "M", "", "");
+        nro_romano += magia(centenas, "C", "D", "M");
+        nro_romano += magia(decenas, "X", "L", "C");
+        nro_romano += magia(unidades, "I", "V", "X");
+
+        return nro_romano;
     }
 }

@@ -1,30 +1,48 @@
 package com.tp2.roman;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 
 class RomanNumeralsTest {
 
-    // TODO: Replace these lines with your tests
+    RomanNumerals ejercicio = new RomanNumerals();
+
     @Test
-    void exampleTest(){
-        assertEquals(4, 2 + 1);
+    void basicos() {
+        assertEquals("I", ejercicio.convert(1));
+        assertEquals("V", ejercicio.convert(5));
+        assertEquals("X", ejercicio.convert(10));
     }
 
-//    Missing tests:
-//
-//- Convert 1 to "I"
-//- Convert 5 to "V"
-//- Convert 10 to "X"
-//- Convert 4 to "IV" (subtraction case)
-//- Convert 9 to "IX" (subtraction case)
-//- Convert 40 to "XL"
-//- Convert 50 to "L"
-//- Convert 90 to "XC"
-//- Convert 100 to "C"
-//- Convert 400 to "CD"
-//- Convert 500 to "D"
-//- Convert 900 to "CM"
-//- Convert 1000 to "M"
-//- Convert complex numbers like 1994 to "MCMXCIV"
+    @Test
+    void resta() {
+        assertEquals("IV", ejercicio.convert(4));
+        assertEquals("IX", ejercicio.convert(9));
+    }
+
+    @Test
+    void nrosMedianos() {
+        assertEquals("XL", ejercicio.convert(40));
+        assertEquals("L", ejercicio.convert(50));
+        assertEquals("XC", ejercicio.convert(90));
+        assertEquals("XCVIII", ejercicio.convert(98));
+        assertEquals("C", ejercicio.convert(100));
+    }
+
+    @Test
+    void nrosGrandes() {
+        assertEquals("CD", ejercicio.convert(400));
+        assertEquals("D", ejercicio.convert(500));
+        assertEquals("CM", ejercicio.convert(900));
+        assertEquals("M", ejercicio.convert(1000));
+    }
+
+    @Test
+    void nroComplejos() {
+        assertEquals("MCMXCIV", ejercicio.convert(1994));
+        assertEquals("MMDCXCIV", ejercicio.convert(2694));
+        assertEquals("MMMCVI", ejercicio.convert(3106));
+    }
 }
