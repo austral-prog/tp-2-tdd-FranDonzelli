@@ -9,7 +9,7 @@ class LeapYearTest {
     LeapYear ejercicio = new LeapYear();
 
     @Test
-    void div4(int year) {
+    void div4() {
         assertTrue(ejercicio.isDiv4(2024));
         assertTrue(ejercicio.isDiv4(2004));
         assertFalse(ejercicio.isDiv4(2003));
@@ -18,7 +18,7 @@ class LeapYearTest {
     }
 
     @Test
-    void div100(int year) {
+    void div100() {
         assertTrue(ejercicio.isDiv100(1900));
         assertTrue(ejercicio.isDiv100(2100));
         assertFalse(ejercicio.isDiv100(2004));
@@ -26,10 +26,18 @@ class LeapYearTest {
     }
 
     @Test
-    void div400(int year) {
+    void div400() {
         assertTrue(ejercicio.isDiv400(2000));
         assertTrue(ejercicio.isDiv400(2400));
         assertFalse(ejercicio.isDiv400(1900));
         assertFalse(ejercicio.isDiv400(2100));
+    }
+
+    @Test
+    void leapYear() {
+       // assertTrue(ejercicio.isLeapYear(2020));
+        //assertTrue(ejercicio.isLeapYear(2024));
+        assertFalse(ejercicio.isLeapYear(2100));
+        assertFalse(ejercicio.isLeapYear(1900));
     }
 }
