@@ -1,9 +1,6 @@
 package com.tp2.roman;
 
 public class RomanNumerals {
-    String uno = "I";
-    String cinco = "V";
-    String diez = "X";
 
     public String magia(int cantidad, String uno, String cinco, String diez) {
         String numero = "";

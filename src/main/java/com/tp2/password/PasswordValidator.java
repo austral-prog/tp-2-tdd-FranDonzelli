@@ -16,9 +16,9 @@ public class PasswordValidator {
             return false;
         }
     }
+
     public boolean upperLetter(String password) {
         String upperPassword = password.toUpperCase();
-
         for (int i = 0; i < password.length(); i++) {
             if (password.charAt(i) == upperPassword.charAt(i)) {
                 return true;
@@ -53,7 +53,6 @@ public class PasswordValidator {
 
     public boolean specialChar(String password){
         char[] arrayChars = {'!','@','#','$','%','^','&','*','(',')','_','+','-','=','[',']','{','}','|',';',':',',','.','<','>','?'};
-
         for (int i = 0; i < password.length(); i++) {
             for (int j = 0; j < arrayChars.length; j++) {
                 if (password.charAt(i) == arrayChars[j]){
